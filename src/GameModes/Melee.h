@@ -22,6 +22,7 @@ public:
         current_Pinout.right        = original_Pinout.right      ;
         current_Pinout.modX         = original_Pinout.modX       ;
         current_Pinout.modY         = original_Pinout.modY       ;
+        current_Pinout.modZ         = original_Pinout.select       ;
         current_Pinout.start        = original_Pinout.start      ;
         current_Pinout.select       = original_Pinout.select     ;
         current_Pinout.home         = original_Pinout.home       ;
@@ -107,6 +108,63 @@ public:
             // Wavedash
             coords.modY_Diagonal_Shield.set   (40, 68);
 
+
+        // ModX
+            // Tilts
+            coords.modX_Horizontal.set        (53,  0);
+            coords.modX_Vertical.set          ( 0, 43);
+
+            // Side B Nerf
+            coords.modX_Horizontal_B.set      (53,  0);
+            coords.modX_Vertical_B.set        ( 0, 43);
+
+            // Up B Angles
+            coords.modX_Diagonal.set          (59, 25);
+            coords.modX_Diagonal_cDown.set    (56, 29);
+            coords.modX_Diagonal_cLeft.set    (63, 39);
+            coords.modX_Diagonal_cUp.set      (56, 41);
+            coords.modX_Diagonal_cRight.set   (49, 42);
+
+            // Extended Up B Angles
+            coords.modX_Diagonal_B.set        (73, 31);
+            coords.modX_Diagonal_cDown_B.set  (70, 36);
+            coords.modX_Diagonal_cLeft_B.set  (68, 42);
+            coords.modX_Diagonal_cUp_B.set    (59, 43);
+            coords.modX_Diagonal_cRight_B.set (51, 43);
+
+            // Wavedash
+            coords.modX_Diagonal_Shield.set   (51, 30);
+
+            // Angled FSmash
+            coords.modX_Angled_FSmash.set     (68, 42);
+
+
+        // ModZ
+            // Tilts
+            coords.modZ_Horizontal.set        (53,  0);
+            coords.modZ_Vertical.set          ( 0, 43);
+
+            // Side B Nerf
+            coords.modZ_Horizontal_B.set      (53,  0);
+            coords.modZ_Vertical_B.set        ( 0, 43);
+
+            // Up B Angles
+            coords.modZ_Diagonal.set          (59, 25);
+            coords.modZ_Diagonal_cDown.set    (56, 29);
+            coords.modZ_Diagonal_cLeft.set    (63, 39);
+            coords.modZ_Diagonal_cUp.set      (56, 41);
+            coords.modZ_Diagonal_cRight.set   (49, 42);
+
+            // EZtended Up B Angles
+            coords.modZ_Diagonal_B.set        (73, 31);
+            coords.modZ_Diagonal_cDown_B.set  (70, 36);
+            coords.modZ_Diagonal_cLeft_B.set  (68, 42);
+            coords.modZ_Diagonal_cUp_B.set    (59, 43);
+            coords.modZ_Diagonal_cRight_B.set (51, 43);
+
+            // Wavedash
+            coords.modZ_Diagonal_Shield.set   (51, 30);
+
             leftXSOCD = leftX;
             leftYSOCD = leftY;
             rightXSOCD = rightX;
@@ -159,7 +217,7 @@ public:
         outputs.dpadUp = (inputs->modX && inputs->modY && inputs->r_Up);
         outputs.dpadDown = (inputs->modX && inputs->modY && inputs->r_Down);
         // If you have select/home buttons, those can be used too for faster save/load state
-        outputs.dpadLeft = ((inputs->modX && inputs->modY && inputs->r_Left) || inputs->select);
+        outputs.dpadLeft = ((inputs->modX && inputs->modY && inputs->r_Left) );
         outputs.dpadRight = ((inputs->modX && inputs->modY && inputs->r_Right) || inputs->home);
 
         if (inputs->midshield)

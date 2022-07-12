@@ -91,7 +91,7 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
     // Modifiers
 
     // If no modifiers are held
-    if (!inputs->modX && !inputs->modY) {
+    if (!inputs->modX && !inputs->modY && !inputs->modZ) {
         if (HORIZONTAL && !DIAGONAL) {
             returnStatus.leftStickX += (positionX * currentCoords.maxOffset);
         }
@@ -261,11 +261,91 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
             }
         }  
     }
+
     // If both mods are held
     else if (inputs->modX && inputs->modY) {
         // Disable CStick so the dpad will work as intended.
         returnStatus.rightStickX = currentCoords.neutral;
         returnStatus.rightStickY = currentCoords.neutral;
+    }
+
+    // when this is inputs->select it works
+    if (inputs->modZ) {
+        if (HORIZONTAL && !DIAGONAL) {
+            if (!inputs->b)
+                returnStatus.leftStickX += (positionX * currentCoords.modX_Horizontal.x);
+            else
+                returnStatus.leftStickX += (positionX * currentCoords.modX_Horizontal_B.x);
+        }
+        else if (VERTICAL && !DIAGONAL) {
+            if (!inputs->b)
+                returnStatus.leftStickY += (positionY * currentCoords.modX_Vertical.y);
+            else
+                returnStatus.leftStickY += (positionY * currentCoords.modX_Vertical_B.y);
+        }
+        else if (DIAGONAL) {
+            // Wavedash
+            if (inputs->r2 || inputs->l2 || inputs->lightshield || inputs->midshield) {
+                returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_Shield.x);
+                returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_Shield.y);
+            }
+            else {
+                // FFox modX cDown
+                if (inputs->r_Down) {
+                    if (!inputs->b) {
+                        returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cDown.x);
+                        returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cDown.y);
+                    }
+                    else {
+                        returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cDown_B.x);
+                        returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cDown_B.y);
+                    }
+                }
+                // FFox modX cLeft
+                else if (inputs->r_Left) {
+                    if (!inputs->b) {
+                        returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cLeft.x);
+                        returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cLeft.y);
+                    }
+                    else {
+                        returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cLeft_B.x);
+                        returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cLeft_B.y);
+                    }
+                }
+                // FFox modX cUp
+                else if (inputs->r_Up) {
+                    if (!inputs->b) {
+                        returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cUp.x);
+                        returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cUp.y);
+                    }
+                    else {
+                        returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cUp_B.x);
+                        returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cUp_B.y);
+                    }
+                }
+                // FFox modX cLeft
+                else if (inputs->r_Right) {
+                    if (!inputs->b) {
+                        returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cRight.x);
+                        returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cRight.y);
+                    }
+                    else {
+                        returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cRight_B.x);
+                        returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cRight_B.y);
+                    }
+                }
+                // Tilt angle
+                else {
+                    returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal.x);
+                    returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal.y);
+                }
+            }
+        }
+
+        if (positionCX != 0) {
+            returnStatus.rightStickX = currentCoords.neutral + (positionCX * currentCoords.modX_Angled_FSmash.x);
+            returnStatus.rightStickY = currentCoords.neutral + (positionY * currentCoords.modX_Angled_FSmash.y);
+        }    
     }
 
     return returnStatus;

@@ -70,7 +70,7 @@ CLFWController controller;
 
 //****************************************************************************//
 // Select your SOCD                                    LeftX,    LeftY,   RightX,   RightY   Axes
-meleeMode    meleeGameMode(controller.original_Pinout, TwoIPNoR, TwoIPNoR, TwoIPNoR, TwoIPNoR);
+meleeMode    meleeGameMode(controller.original_Pinout, TwoIPNoR, TwoIPNoR, TwoIPNoR, TwoIPNoR); // kevbot change SOCD here
 ultimateMode ultGameMode  (controller.original_Pinout, TwoIP   , TwoIP   , TwoIP   , TwoIP   );
 PMMode       PMGameMode   (controller.original_Pinout, TwoIPNoR, TwoIPNoR, TwoIPNoR, TwoIPNoR);
 RoAMode      RoAGameMode  (controller.original_Pinout, TwoIP   , TwoIP   , TwoIP   , TwoIP   );

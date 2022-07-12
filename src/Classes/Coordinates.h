@@ -83,6 +83,32 @@ struct coordinates {
 
         // Wavedash
         coordinate modY_Diagonal_Shield;
+
+    // ModZ
+        // Tilts
+        coordinate modZ_Horizontal;
+        coordinate modZ_Vertical;
+
+        // Side B Nerf
+        coordinate modZ_Horizontal_B;
+        coordinate modZ_Vertical_B;
+        
+        // Up B Angles
+        coordinate modZ_Diagonal;
+        coordinate modZ_Diagonal_cDown;
+        coordinate modZ_Diagonal_cLeft;
+        coordinate modZ_Diagonal_cUp;
+        coordinate modZ_Diagonal_cRight;
+
+        // Extended Up B Angles
+        coordinate modZ_Diagonal_B;
+        coordinate modZ_Diagonal_cDown_B;
+        coordinate modZ_Diagonal_cLeft_B;
+        coordinate modZ_Diagonal_cUp_B;
+        coordinate modZ_Diagonal_cRight_B;
+
+        // Wavedash
+        coordinate modZ_Diagonal_Shield;
 };
 
 #endif

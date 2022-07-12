@@ -12,6 +12,7 @@ struct pinout {
     uint8_t modY       ;
     uint8_t start      ;
     uint8_t select     ;
+    uint8_t modZ       ;
     uint8_t home       ;
     uint8_t a          ;
     uint8_t b          ;
