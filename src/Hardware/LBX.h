@@ -13,6 +13,7 @@ public:
         original_Pinout.modX         =   3;
         original_Pinout.modY         =   0;
         original_Pinout.start        =  A5;
+        // below is the JFA key aka "third modifier"
         original_Pinout.select       = 2;
         original_Pinout.home         = 255;
         original_Pinout.a            =  12;
