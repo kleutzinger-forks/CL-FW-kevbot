@@ -33,8 +33,8 @@ public:
         current_Pinout.r1           = original_Pinout.lightshield         ;
         current_Pinout.l2           = original_Pinout.b         ;
         current_Pinout.r2           = original_Pinout.y         ;
-        current_Pinout.lightshield  = original_Pinout.select;
-        current_Pinout.midshield    = original_Pinout.r1  ;
+        current_Pinout.lightshield  = original_Pinout.r1;
+        current_Pinout.midshield    = original_Pinout.select  ;
         current_Pinout.cUp          = original_Pinout.cDown        ;
         current_Pinout.cDown        = original_Pinout.cRight      ;
         current_Pinout.cLeft        = original_Pinout.cLeft      ;
@@ -161,11 +161,11 @@ public:
             outputs.triggerL = 0;
 
         // Dpad is modX + modY + C stick
-        outputs.dpadUp = (inputs->modX && inputs->modY && inputs->r_Up);
-        outputs.dpadDown = (inputs->modX && inputs->modY && inputs->r_Down);
+        outputs.dpadUp = (inputs->modX && inputs->modY && inputs->r_Right);
+        outputs.dpadDown = (inputs->modX && inputs->modY && inputs->r_Up);
         // If you have select/home buttons, those can be used too for faster save/load state
         outputs.dpadLeft = ((inputs->modX && inputs->modY && inputs->r_Left));
-        outputs.dpadRight = ((inputs->modX && inputs->modY && inputs->r_Right) || inputs->home);
+        outputs.dpadRight = ((inputs->modX && inputs->modY && inputs->r_Down) || inputs->home);
 
         if (inputs->midshield)
             outputs.triggerR = 95;
