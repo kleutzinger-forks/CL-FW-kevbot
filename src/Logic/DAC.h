@@ -113,13 +113,13 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
     // If modX but not modY is held
     else if (inputs->modX && !inputs->modY) {
         if (HORIZONTAL && !DIAGONAL) {
-            if (!inputs->b)
+            if (!inputs->r1)
                 returnStatus.leftStickX += (positionX * currentCoords.modX_Horizontal.x);
             else
                 returnStatus.leftStickX += (positionX * currentCoords.modX_Horizontal_B.x);
         }
         else if (VERTICAL && !DIAGONAL) {
-            if (!inputs->b)
+            if (!inputs->r1)
                 returnStatus.leftStickY += (positionY * currentCoords.modX_Vertical.y);
             else
                 returnStatus.leftStickY += (positionY * currentCoords.modX_Vertical_B.y);
@@ -133,7 +133,7 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
             else {
                 // FFox modX cDown
                 if (inputs->r_Down) {
-                    if (!inputs->b) {
+                    if (!inputs->r1) {
                         returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cDown.x);
                         returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cDown.y);
                     }
@@ -144,7 +144,7 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
                 }
                 // FFox modX cLeft
                 else if (inputs->r_Left) {
-                    if (!inputs->b) {
+                    if (!inputs->r1) {
                         returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cLeft.x);
                         returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cLeft.y);
                     }
@@ -155,7 +155,7 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
                 }
                 // FFox modX cUp
                 else if (inputs->r_Up) {
-                    if (!inputs->b) {
+                    if (!inputs->r1) {
                         returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cUp.x);
                         returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cUp.y);
                     }
@@ -166,7 +166,7 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
                 }
                 // FFox modX cLeft
                 else if (inputs->r_Right) {
-                    if (!inputs->b) {
+                    if (!inputs->r1) {
                         returnStatus.leftStickX += (positionX * currentCoords.modX_Diagonal_cRight.x);
                         returnStatus.leftStickY += (positionY * currentCoords.modX_Diagonal_cRight.y);
                     }
@@ -191,13 +191,13 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
     // If modY but not modX is held
     else if (!inputs->modX && inputs->modY) {
         if (HORIZONTAL && !DIAGONAL) {
-            if (!inputs->b)
+            if (!inputs->r1)
                 returnStatus.leftStickX += (positionX * currentCoords.modY_Horizontal.x);
             else
                 returnStatus.leftStickX += (positionX * currentCoords.modY_Horizontal_B.x);
         }
         else if (VERTICAL && !DIAGONAL) {
-            if (!inputs->b)
+            if (!inputs->r1)
                 returnStatus.leftStickY += (positionY * currentCoords.modY_Vertical.y);
             else
                 returnStatus.leftStickY += (positionY * currentCoords.modY_Vertical_B.y);
@@ -211,7 +211,7 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
             else {
                 // FFox modY cDown
                 if (inputs->r_Down) {
-                    if (!inputs->b) {
+                    if (!inputs->r1) {
                         returnStatus.leftStickX += (positionX * currentCoords.modY_Diagonal_cDown.x);
                         returnStatus.leftStickY += (positionY * currentCoords.modY_Diagonal_cDown.y);
                     }
@@ -222,7 +222,7 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
                 }
                 // FFox modY cLeft
                 else if (inputs->r_Left) {
-                    if (!inputs->b) {
+                    if (!inputs->r1) {
                         returnStatus.leftStickX += (positionX * currentCoords.modY_Diagonal_cLeft.x);
                         returnStatus.leftStickY += (positionY * currentCoords.modY_Diagonal_cLeft.y);
                     }
@@ -233,7 +233,7 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
                 }
                 // FFox modY cUp
                 else if (inputs->r_Up) {
-                    if (!inputs->b) {
+                    if (!inputs->r1) {
                         returnStatus.leftStickX += (positionX * currentCoords.modY_Diagonal_cUp.x);
                         returnStatus.leftStickY += (positionY * currentCoords.modY_Diagonal_cUp.y);
                     }
@@ -244,7 +244,7 @@ outputStatus rectangleDAC(inputStatus *inputs, coordinates currentCoords, SOCD l
                 }
                 // FFox modY cLeft
                 else if (inputs->r_Right) {
-                    if (!inputs->b) {
+                    if (!inputs->r1) {
                         returnStatus.leftStickX += (positionX * currentCoords.modY_Diagonal_cRight.x);
                         returnStatus.leftStickY += (positionY * currentCoords.modY_Diagonal_cRight.y);
                     }
